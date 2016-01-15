@@ -1,0 +1,31 @@
+[
+  {
+    "_id": 376217,
+    "key": "4111111",
+    "name": "Berlin",
+    "fullName": "Berlin, Germany",
+    "iata_airport_code": "TXL",
+    "type": "location",
+    "country": "Germany",
+    "geo_position": null,
+    "locationId": 8384,
+    "inEurope": true,
+    "countryCode": "DE",
+    "coreCountry": true,
+    "distance": 10
+  },
+  {
+    "_id": 376217,
+    "key": "4111111",
+    "name": "Berlin",
+    "fullName": "Berlin, Germany",
+    "iata_airport_code": "TXL",
+    "type": "location",
+    "country": "Germany",
+    "locationId": 8384,
+    "inEurope": true,
+    "countryCode": "DE",
+    "coreCountry": true,
+    "distance": 10
+  }
+]

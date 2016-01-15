@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%msg%n" />
+        </Console>
+        <File name="File" fileName="app.log" immediateFlush="false" append="true">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} %-5level %c{1} - %msg%n" />
+        </File>
+    </Appenders>
+    <Loggers>
+        <Logger name="com.github.sebtom.goeuro.App_console" level="trace" additivity="true">
+            <AppenderRef ref="Console" />
+        </Logger>
+        <Root level="trace">
+            <AppenderRef ref="File" />
+        </Root>
+    </Loggers>
+</Configuration>
