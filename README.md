@@ -1,4 +1,5 @@
 # dev-test
-Don't want to name my repo goeuro, because:
+This is a solution for Developer Test:
+https://github.com/ricardobaumann/dev-test
 
-https://github.com/search?utf8=%E2%9C%93&q=goeuro&type=Repositories&ref=searchresults
+I have tried to use only most important external libs. If the project was bigger I would use some DI library, or Spring - for this simple task it would be overhead.
