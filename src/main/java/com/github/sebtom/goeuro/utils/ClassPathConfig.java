@@ -19,16 +19,16 @@ public abstract class ClasspathConfig {
     private void load(String propertiesPath) {
         try (InputStream inputStream = this.getClass().getResourceAsStream(propertiesPath)) {
             if (inputStream == null) {
-                throw new AppException(String.format("Configuration not found: '%s'", propertiesPath));
+                throw new AppException(String.format("Configuration not found: '%s'.", propertiesPath));
             }
 
             properties.load(inputStream);
         } catch (IOException e) {
-            throw new AppException(String.format("Configuration could not be loaded: '%s'", propertiesPath), e);
+            throw new AppException(String.format("Configuration could not be loaded: '%s'.", propertiesPath), e);
         }
 
         if (!isValid()) {
-            throw new AppException(String.format("Configuration is not valid: '%s'", propertiesPath));
+            throw new AppException(String.format("Configuration is not valid: '%s'.", propertiesPath));
         }
     }
 

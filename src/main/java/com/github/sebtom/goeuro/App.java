@@ -26,14 +26,14 @@ public class App {
 
     private static void safeExecute(String[] args) {
         Timer timer = new Timer();
-        log.info("Start processing...");
         if (!isValid(args)) {
             exitFault();
             return;
         }
-
+        String cityQuery = args[0];
+        console.info("Start processing for input: '{}'.", cityQuery);
         LocationDownloader downloader = new LocationDownloader(new GoEuroLocationQueryService(), new CsvLocationStore());
-        LocationStore.Summary summary = downloader.download(args[0]);
+        LocationStore.Summary summary = downloader.download(cityQuery);
         checkResult(summary, timer);
     }
 
@@ -51,8 +51,8 @@ public class App {
     }
 
     private static void notifyFailure(Exception e) {
-        console.info("Exception occurs while processing. Check application logs for details.");
-        log.error("Exception occurs while processing.", e);
+        console.info("Exception occurred while processing. Check application logs for details.");
+        log.error("Exception occurred while processing.", e);
         exitFault();
     }
 
@@ -62,12 +62,12 @@ public class App {
 
     private static void checkResult(LocationStore.Summary summary, Timer timer) {
         if (summary.getTotalCount() == 0) {
-            console.info("No matches found for specified \"CITY_NAME\"");
+            console.info("No matches found for specified \"CITY_NAME\".");
         } else {
-            console.info("Successfully downloaded {} entries, {} of them invalid. Check output file '{}'",
+            console.info("Successfully downloaded {} entries, {} of them invalid. Check output file '{}'.",
                     summary.getTotalCount(), summary.getInvalidEntries(), summary.getOutput());
         }
-        console.info("Execution took {} s", timer.getElapsedTime());
+        console.info("Execution took {} s.", timer.getElapsedTime());
 
     }
 }

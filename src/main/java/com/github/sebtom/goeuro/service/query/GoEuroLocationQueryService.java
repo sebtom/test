@@ -26,7 +26,7 @@ public class GoEuroLocationQueryService implements LocationQueryService {
     public List<Location> findLocationsByCityName(String cityName) {
         String queryUrl = buildQueryUrl(cityName);
         URL url = getUrl(queryUrl);
-        log.info("Querying REST url: '{}'", url.toString());
+        log.info("Querying REST url: '{}'.", url.toString());
         return queryLocations(url);
     }
 
@@ -38,7 +38,7 @@ public class GoEuroLocationQueryService implements LocationQueryService {
         try {
             return URLEncoder.encode(cityName, "UTF-8").replaceAll("\\+", "%20");
         } catch (UnsupportedEncodingException e) {
-            throw new AppException(String.format("Exception encoding query: '%s'", cityName), e);
+            throw new AppException(String.format("Exception encoding query: '%s'.", cityName), e);
         }
     }
 
@@ -46,7 +46,7 @@ public class GoEuroLocationQueryService implements LocationQueryService {
         try {
             return new URL(queryUrl);
         } catch (MalformedURLException e) {
-            throw new AppException(String.format("Specified URL is invalid: '%s'", queryUrl), e);
+            throw new AppException(String.format("Specified URL is invalid: '%s'.", queryUrl), e);
         }
     }
 
@@ -55,7 +55,7 @@ public class GoEuroLocationQueryService implements LocationQueryService {
             InputStream input = url.openStream();
             return parser.parse(input);
         } catch (IOException e) {
-            throw new AppException(String.format("Could not read from: '%s'", url), e);
+            throw new AppException(String.format("Could not read from: '%s'.", url), e);
         }
     }
 }

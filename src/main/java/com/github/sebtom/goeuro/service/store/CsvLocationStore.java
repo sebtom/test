@@ -39,7 +39,7 @@ public class CsvLocationStore implements LocationStore {
                 }
             }
         } catch (IOException e) {
-            throw new AppException(String.format("Error while writing a file: %s", file.getFileName()), e);
+            throw new AppException(String.format("Error while writing a file: %s.", file.getFileName()), e);
         }
         return new Summary(locations.size(), invalidEntries, output.toAbsolutePath().toString());
     }
@@ -53,7 +53,7 @@ public class CsvLocationStore implements LocationStore {
             Files.deleteIfExists(file);
             return Files.createFile(file);
         } catch (IOException e) {
-            throw new AppException(String.format("Could not prepare output file: %s", file.getFileName()), e);
+            throw new AppException(String.format("Could not prepare output file: %s.", file.getFileName()), e);
         }
     }
 

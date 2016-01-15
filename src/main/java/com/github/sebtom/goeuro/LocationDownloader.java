@@ -19,7 +19,7 @@ public class LocationDownloader {
     private LocationStore writer;
 
     public LocationStore.Summary download(String cityName) {
-        log.info("Downloading locations for: '{}'", cityName);
+        log.info("Downloading locations for: '{}'.", cityName);
         List<Location> locations = reader.findLocationsByCityName(cityName);
         return writer.save(locations);
     }

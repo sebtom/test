@@ -12,15 +12,9 @@ import com.github.sebtom.goeuro.model.Position;
 public class GoEuroLocation extends Location {
 
     @Override
-    @JsonProperty(value = "_id", required = true)
+    @JsonProperty(value = "_id")
     public Location setId(String value) {
         return super.setId(value);
-    }
-
-    @Override
-    @JsonProperty(required = true)
-    public Location setName(String value) {
-        return super.setName(value);
     }
 
     @Override
@@ -42,7 +36,7 @@ public class GoEuroLocation extends Location {
     }
 
     @Override
-    @JsonProperty(value = "geo_position", required = true)
+    @JsonProperty(value = "geo_position")
     public Location setPosition(Position value) {
         return super.setPosition(value);
     }
