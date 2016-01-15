@@ -30,7 +30,7 @@ public class App {
             exitFault();
             return;
         }
-        String cityQuery = args[0];
+        String cityQuery = args[0].trim();
         console.info("Start processing for input: '{}'.", cityQuery);
         LocationDownloader downloader = new LocationDownloader(new GoEuroLocationQueryService(), new CsvLocationStore());
         LocationStore.Summary summary = downloader.download(cityQuery);
@@ -45,6 +45,10 @@ public class App {
         } else if (args.length > 1) {
             console.info("More than one 'CITY_NAME' is specified, maybe you forgot quotes. Usage example:");
             console.info("java -jar GoEuroTest.jar \"CITY_NAME\"");
+            return false;
+        } else if (args[0].trim().length() == 0){
+            console.info("'CITY_NAME' must contain some non-whitespace chars. Usage example:");
+            console.info("java -jar GoEuroTest.jar \"    CITY_NAME    \"");
             return false;
         }
         return true;
